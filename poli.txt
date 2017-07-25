@@ -1,0 +1,16 @@
+public static void launchBrowser(String browser ,String URL)
+{
+DesiredCapabilities cap = new DesiredCapabilities() 
+//name of the browser 
+//Chrome Browser 
+if(browser.equalsIgnoreCase("chrome")) {
+ System.out.println(" Browser Name :" + cap.getBrowserName());
+ System.setProperty("webdriver.chrome.driver", "C:\\Users\\ICT\\Desktop\\seleniumSoft\\chromedriver_win32\\chromedriver.exe");
+ driver = new ChromeDriver(); driver.navigate().to(URL); }
+ //firefox Browser 
+if(browser.equalsIgnoreCase("firefox")) {
+ driver = new FirefoxDriver() driver.navigate().to(URL) }
+ //IE Browser if(browser.equalsIgnoreCase("iexplorer")) {
+ cap.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,true);
+ System.setProperty("webdriver.ie.driver", "C:\\Users\\ICT\\Desktop\\seleniumSoft\\IEDriverServer_x64_2.53.1\\IEDriverServer.exe")
+ driver = new InternetExplorerDriver(cap); driver.get(URL); }
